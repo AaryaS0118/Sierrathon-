@@ -1,0 +1,29 @@
+(version 1)
+
+# ------------------------------------------------------------------------------------------
+# Sierrathon custom rules.
+# Board Setup > Constraints holds the ABSOLUTE floors (4 mil clearance, 5 mil track) because the
+# 90-ohm USB pairs need 5 mil traces with a 4 mil gap (stack-up rows c/d). KiCad cannot let any
+# rule go below a Constraints value, so the floors must equal the USB geometry. Everything that
+# is NOT a USB impedance trace is held to the 6 mil Sierrathon minimum by the rules below and by
+# the 6 mil clearance on every net class.
+# ------------------------------------------------------------------------------------------
+
+(rule "Non-impedance traces: 6 mil min width"
+    (condition "!A.hasNetclass('USB_90R')")
+    (constraint track_width (min 6mil)))
+
+(rule "USB 90R pairs: 5 mil traces, 4 mil gap (+/-10%)"
+    (condition "A.hasNetclass('USB_90R')")
+    (constraint track_width (min 4.5mil) (opt 5mil) (max 5.5mil))
+    (constraint diff_pair_gap (min 3.6mil) (opt 4mil) (max 4.4mil))
+    (constraint diff_pair_uncoupled (max 3mm)))
+
+(rule "USB 90R pairs: 4 mil gap allowed only between the two halves of the same pair"
+    (condition "A.hasNetclass('USB_90R') && AB.isCoupledDiffPair()")
+    (constraint clearance (min 4mil)))
+
+(rule "USB 90R pairs: outer layers only (impedance is defined for L1/L4)"
+    (layer inner)
+    (condition "A.hasNetclass('USB_90R')")
+    (constraint disallow track))
