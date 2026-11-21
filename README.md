@@ -5,14 +5,33 @@ Pocket Lab: a keyring-sized USB logic analyzer / voltmeter for engineering stude
 Specs, BOM and scoring live in `Resources/`. Team hub: https://claude.ai/artifact/RmexhoVS2DCETLfirbf43f
 
 ## Board outline (done)
-- Rounded stick, 75 x 27 mm. USB-C (J1) on the left end; small 3 mm corners there, 6 mm corners on the far end.
-- M4 holes: MH1/MH3 at (13, 6)/(13, 21) right behind the USB-C (they take plug-in force),
-  MH2/MH4 at (69, 6)/(69, 21), concentric with the far corners. MH4 doubles as the keyring hole.
+- Rounded stick, 75 x 27 mm, 3 mm corners. USB-C on BOTH ends:
+  J1 (left, silkscreen "PC") goes to the laptop, J2 (right, silkscreen "PROBE") goes to the circuit under test.
+- M4 holes sit right behind each USB-C so the screws take plug-in force:
+  MH1/MH3 at (13, 6)/(13, 21), MH2/MH4 at (62, 6)/(62, 21). MH4 doubles as the keyring hole.
   Coordinates are mm from the board's top-left (grid origin is set there).
-- Blue drawings on `User.Comments` are placement guides only (J1, J2 header row, RP2040 zone,
-  LED zone, hole circles). Delete them once parts are placed.
-- J2 (1x12 header, bottom edge) is drawn as a guide only. It goes in the schematic only after
-  written judge approval.
+- Blue drawings on `User.Comments` are placement guides only (J1, J2, RP2040 zone, LED zone,
+  R20-R25 zone, hole circles). Delete them once parts are placed.
+
+## Probe port J2 (judges approved adding a USB-C)
+J2 is the SAME part as J1 (UJ20-C-H-G-SMT-TR), so no new footprint. Each signal goes through
+a 1 kΩ series resistor (R20-R25, same part as R7/R8: RC0402FR-071KL) placed close to J2.
+
+| J2 pins | Net | RP2040 |
+|---|---|---|
+| A6 + B6 (D+, tied together) | CH0 | GPIO0 (pin 2) |
+| A7 + B7 (D-, tied together) | CH1 | GPIO1 (pin 3) |
+| A8 (SBU1) | CH2 | GPIO2 (pin 4) |
+| B8 (SBU2) | CH3 | GPIO3 (pin 5) |
+| A5 (CC1) | A0 | GPIO26 (pin 38) |
+| B5 (CC2) | A1 | GPIO27 (pin 39) |
+| GND pins + shell | GND | |
+| VBUS pins | not connected (so a charger/laptop plugged in here can't push 5 V in) | |
+
+Flipping the plug swaps CH2/CH3 and A0/A1 only. Draw J2 + R20-R25 on a second KiCad 10
+top-level sheet and connect with **global** labels (CH0-CH3, A0, A1). On page 1 only GPIO0-3
+and GPIO26-27 lose their no-connect X and get those labels.
+BOM changes: USB-C line becomes J1, J2 qty 2; 1 kΩ line becomes R7, R8, R20-R25 qty 8.
 
 ## Team rules for working in this repo
 - KiCad files don't merge well. **Only one person edits a given file at a time**
