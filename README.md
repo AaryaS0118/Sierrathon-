@@ -1,7 +1,18 @@
-# Sierrathon PCB Design – SeeBraille
+# Sierrathon PCB Design – Pocket Lab
 
 KiCad 10 project for the Sierrathon PCB design hackathon.
-Specs, BOM, scoring and project idea live in `Resources/`.
+Pocket Lab: a keyring-sized USB logic analyzer / voltmeter for engineering students.
+Specs, BOM and scoring live in `Resources/`. Team hub: https://claude.ai/artifact/RmexhoVS2DCETLfirbf43f
+
+## Board outline (done)
+- Rounded stick, 75 x 27 mm. USB-C (J1) on the left end; small 3 mm corners there, 6 mm corners on the far end.
+- M4 holes: MH1/MH3 at (13, 6)/(13, 21) right behind the USB-C (they take plug-in force),
+  MH2/MH4 at (69, 6)/(69, 21), concentric with the far corners. MH4 doubles as the keyring hole.
+  Coordinates are mm from the board's top-left (grid origin is set there).
+- Blue drawings on `User.Comments` are placement guides only (J1, J2 header row, RP2040 zone,
+  LED zone, hole circles). Delete them once parts are placed.
+- J2 (1x12 header, bottom edge) is drawn as a guide only. It goes in the schematic only after
+  written judge approval.
 
 ## Team rules for working in this repo
 - KiCad files don't merge well. **Only one person edits a given file at a time**
