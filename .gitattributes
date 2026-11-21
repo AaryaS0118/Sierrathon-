@@ -1,0 +1,6 @@
+# Store KiCad files byte-for-byte so Windows/Mac teammates do not get line-ending diffs
+*.kicad_sch -text
+*.kicad_pcb -text
+*.kicad_pro -text
+*.kicad_sym -text
+*.kicad_mod -text
