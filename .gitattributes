@@ -4,3 +4,4 @@
 *.kicad_pro -text
 *.kicad_sym -text
 *.kicad_mod -text
+*.kicad_mod -text

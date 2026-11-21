@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "Sierrathon") (type "KiCad") (uri "${KIPRJMOD}/Libraries/Sierrathon.pretty") (options "") (descr "Project footprints: UJ20 USB-C, PTS526 tactile switch (built from manufacturer datasheets)"))
+)
