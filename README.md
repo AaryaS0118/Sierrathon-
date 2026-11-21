@@ -2,7 +2,7 @@
 
 KiCad 10 project for the Sierrathon PCB design hackathon.
 Pocket Lab: a keyring-sized USB logic analyzer / voltmeter for engineering students.
-Specs, BOM and scoring live in `Resources/`. Team hub: https://claude.ai/artifact/RmexhoVS2DCETLfirbf43f
+Specs, BOM and scoring live in `Resources/`.
 
 ## Board outline (done)
 - Rounded stick, 75 x 27 mm, 3 mm corners. USB-C on BOTH ends:
