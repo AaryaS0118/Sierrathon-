@@ -18,3 +18,5 @@ fp-info-cache
 Thumbs.db
 desktop.ini
 .DS_Store
+# KiCad 10 local history (has its own internal git repo)
+.history/
