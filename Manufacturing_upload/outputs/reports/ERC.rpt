@@ -1,0 +1,33 @@
+ERC report (2026-11-21T19:51:18, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+[lib_symbol_issues]: The current configuration does not include the symbol library 'UJ20-C-H-G-SMT-TR'
+    ; warning
+    @(38.10 mm, 93.98 mm): Symbol J1 [UJ20-C-H-G-SMT-TR]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Sierrathon'
+    ; warning
+    @(115.57 mm, 120.65 mm): Symbol SW1 [SW_Push_4P]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'W25Q128JVSIQ'
+    ; warning
+    @(127.00 mm, 154.94 mm): Symbol U3 [W25Q128JVSIQ]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Sierrathon'
+    ; warning
+    @(152.40 mm, 101.60 mm): Symbol SW2 [SW_Push_4P]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'ABM8-272-T3'
+    ; warning
+    @(154.94 mm, 186.69 mm): Symbol Y1 [ABM8-272-T3]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'Sierrathon'
+    ; warning
+    @(266.70 mm, 241.30 mm): Symbol SW3 [SW_Push_4P]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'UJ20-C-H-G-SMT-TR'
+    ; warning
+    @(360.68 mm, 99.06 mm): Symbol J2 [UJ20-C-H-G-SMT-TR]
+
+ ** ERC messages: 7  Errors 0  Warnings 7
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters
